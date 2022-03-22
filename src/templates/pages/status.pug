@@ -1,0 +1,29 @@
+include ../layout/header.pug
+h3.mt-4.mb-5.px-4 Status of Devices
+.px-4.d-flex.justify-content-start.gap-4#statusWrapper
+  if devices
+    each device in devices 
+      - var isOnline= device.isOnline ? 'checked' : undefined
+      - var isActive= device.isActive ? 'checked' : undefined
+      - var isBlacklist= device.isBlacklist ? 'checked' : undefined
+      - var imageSrc = isOnline ? '/assets/onlineDevice.png' : '/assets/offlineDevice.png'
+      .card.p-0(style="width:18rem")
+        form.border.border-1.border-bottom-0.border-end-0.border-start-0.card-text.p-2(data-device-id=device.deviceId) 
+          img.deviceImage.pb-4(src=imageSrc)
+          .d-flex.justify-content-between.p-2.pb-3
+            span isOnline
+            .form-check.form-switch
+              input.form-check-input(type="checkbox",role="switch",id="toggle-online",checked=isOnline,disabled="true")
+              label.form-check-label(for="toggle-online")
+          .d-flex.justify-content-between.p-2
+            span isActive
+            .form-check.form-switch
+              input.form-check-input(type="checkbox",role="switch",id="toggle-active",checked=isActive)
+              label.form-check-label(for="toggle-active")
+          .d-flex.justify-content-between.p-2
+            span isBlacklisted
+            .form-check.form-switch
+              input.form-check-input(type="checkbox",role="switch",id="toggle-blacklist",checked=isBlacklist)
+              label.form-check-label(for="toggle-blacklist")
+
+script(src="/scripts/statusPage.js")

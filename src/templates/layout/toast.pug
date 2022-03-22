@@ -1,0 +1,7 @@
+- var showToast = toastObject && toastObject.toastMessage ? 'show' : 'hide'
+.toast-wrapper(class=showToast)
+  .toast(class=showToast,role="alert",aria-live="assertive",aria-atomic="true")
+    .toast-header
+      strong.me-auto= toastObject && toastObject.toastHeading
+      button.btn-close(type="button",data-bs-dismiss="toast",aria-label="Close",data-close-toast-wrapper="")
+    .toast-body= toastObject && toastObject.toastMessage

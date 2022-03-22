@@ -1,0 +1,11 @@
+include ../layout/header.pug
+form#loginUserForm.pageForm.p-4.border.border-1(method="post" , action="/api/login")
+  h3 Login To Library Client
+  .mb-3.mt-4
+    label.form-label(for="inputEmail") Email
+    input.form-control(id="inputEmail" , type="email" , placeholder="Enter Email Here" , required="true" , name="email")
+  .mb-5
+    label.form-label(for="inputPassword") Password
+    input.form-control(id="inputPassword" , type="password" , placeholder="Enter Password Here" , required="true" , name="password")
+  button.btn.btn-primary(type="submit") Login Now
+

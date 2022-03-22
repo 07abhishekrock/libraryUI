@@ -1,0 +1,4 @@
+if alertBody && alertBody.alertType
+  .alert(class=`alert-${alertBody.alertType}`)= alertBody.alertText || 'No Message'
+
+
